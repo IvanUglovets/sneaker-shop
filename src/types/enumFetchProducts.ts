@@ -1,0 +1,5 @@
+export enum FetchProducts{
+    FETCH_LOADING= "FETCH_LOADING",
+    FETCH_PRODUCTS = "FETCH_PRODUCTS",
+    FETCH_ERROR = "FETCH_ERROR"
+}

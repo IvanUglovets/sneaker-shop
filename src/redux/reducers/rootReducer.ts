@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
-import {fetchUsers} from "./fetchUsers";
+import {fetchProductsReducer} from "./fetchProductsReducer";
 
 export const rootReducer = combineReducers({
-    users: fetchUsers
+    products: fetchProductsReducer
     }
 )
