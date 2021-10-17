@@ -1,7 +1,10 @@
 import {combineReducers} from "redux";
 import {fetchProductsReducer} from "./fetchProductsReducer";
+import {basketReducer} from "./basketReducer";
+
 
 export const rootReducer = combineReducers({
-    products: fetchProductsReducer
+    items: fetchProductsReducer,
+    basketItems: basketReducer
     }
 )

@@ -6,15 +6,28 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {IProduct} from "../redux/reducers/fetchProductsReducer";
+import {IProduct} from "../types/IProduct";
+import {useDispatch} from "react-redux";
+import {addToBasket} from "../redux/reducers/basketReducer";
 
-const CardSneaker: FC<IProduct> = ({title, src, subTitle, price}) => {
+interface IPropsCardSneaker{
+    sneaker: IProduct
+    index: number
+}
+
+const CardSneaker: FC<IPropsCardSneaker> = ({sneaker,index}) => {
+    const dispatch = useDispatch()
+    const {subTitle,src,title,price,id} = sneaker;
+
+    const changeBasket = () => {
+        dispatch(addToBasket(sneaker))
+    }
     return (
         <Grid item>
             <Card sx={{ maxWidth: 345, minHeight: 650 }}>
                 <CardMedia
                     component="img"
-                    alt="green iguana"
+                    alt="sneaker img"
                     height="450"
                     image={src}
                 />
@@ -30,7 +43,7 @@ const CardSneaker: FC<IProduct> = ({title, src, subTitle, price}) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Buy</Button>
+                    <Button variant="contained" onClick={() => changeBasket()}>Buy</Button>
                 </CardActions>
             </Card>
         </Grid>

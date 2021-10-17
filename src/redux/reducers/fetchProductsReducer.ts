@@ -1,12 +1,6 @@
 import {FetchProducts} from "../../types/enumFetchProducts";
+import {IProduct} from "../../types/IProduct";
 
-export interface IProduct{
-    title: string
-    subTitle: string,
-    price: string
-    src: string
-    id: number
-}
 
 export interface IStateProducts{
     isLoading: boolean
