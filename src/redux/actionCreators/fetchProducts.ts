@@ -14,7 +14,8 @@ export function fetchProducts(){
         try {
             dispatch(fetchLoadingCreator())
             const response = await axios.get("http://localhost:3000/data.json")
-            const products = await response.data;
+            const products: any = await response.data;
+            products.forEach((item: any)=> item.id = Math.random()*(10000-1)+1)
             dispatch(fetchProductsCreator(products))
         }
         catch (e){

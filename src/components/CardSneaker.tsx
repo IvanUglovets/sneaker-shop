@@ -1,4 +1,4 @@
-import React,{FC}  from "react";
+import React, {FC} from "react";
 import {Grid} from "@mui/material";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -7,24 +7,33 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {IProduct} from "../types/IProduct";
-import {useDispatch} from "react-redux";
-import {addToBasket} from "../redux/reducers/basketReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {addToBasket, deleteItem} from "../redux/reducers/basketReducer";
+import {RootState} from "../redux/reducers/rootReducer";
 
-interface IPropsCardSneaker{
+
+interface IPropsCardSneaker {
     sneaker: IProduct
-    index: number
 }
 
-const CardSneaker: FC<IPropsCardSneaker> = ({sneaker,index}) => {
+const CardSneaker: FC<IPropsCardSneaker> = ({sneaker}) => {
+    const itemsBasket = useSelector((state:RootState) => state.basketItems.basketSneakers)
     const dispatch = useDispatch()
-    const {subTitle,src,title,price,id} = sneaker;
+    const {subTitle, src, title, price, id} = sneaker;
 
-    const changeBasket = () => {
+    const inBasket = itemsBasket.some((item) => item.id === id)
+
+    const changeBasket = (e: any) => {
+        e.stopPropagation()
         dispatch(addToBasket(sneaker))
+    }
+
+    const deleteFromBasket = (id: number) => {
+        dispatch(deleteItem(id))
     }
     return (
         <Grid item>
-            <Card sx={{ maxWidth: 345, minHeight: 650 }}>
+            <Card sx={{maxWidth: 345, minHeight: 650}}>
                 <CardMedia
                     component="img"
                     alt="sneaker img"
@@ -39,11 +48,16 @@ const CardSneaker: FC<IPropsCardSneaker> = ({sneaker,index}) => {
                         {subTitle}
                     </Typography>
                     <Typography variant="h5" component="span" color="text.secondary">
-                        {price}
+                        {price} руб.
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained" onClick={() => changeBasket()}>Buy</Button>
+                    {inBasket
+                        ?
+                        <Button variant="contained" color="warning"  sx={{fontSize: "12px"}} onClick={() => deleteFromBasket(id)}>Удалить из корзины</Button>
+                        :
+                        <Button variant="contained"  sx={{fontSize: "12px"}} onClick={changeBasket}>В корзину</Button>
+                    }
                 </CardActions>
             </Card>
         </Grid>

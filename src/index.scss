@@ -1,20 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
-body{
+body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 //Header
-.logo__link, .basket__link{
+.logo__link {
   text-decoration: none;
   color: white;
 }
 
+.basket__link {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+.count__sneaker {
+  position: absolute;
+  top: 20%;
+  right: 1%;
+}
+
 //Main
-.wrapper__main{
+.wrapper__main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+//Basket
+.img__basket {
+  height: 150px;
+  width: 100px;
+}
+
+.wrapper__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+
+  &-basket {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

@@ -3,8 +3,11 @@ import {fetchProductsReducer} from "./fetchProductsReducer";
 import {basketReducer} from "./basketReducer";
 
 
+
 export const rootReducer = combineReducers({
     items: fetchProductsReducer,
-    basketItems: basketReducer
+    basketItems: basketReducer,
     }
 )
+
+export type RootState = ReturnType<typeof rootReducer>
