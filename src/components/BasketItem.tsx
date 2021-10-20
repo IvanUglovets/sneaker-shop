@@ -8,6 +8,7 @@ import {useDispatch} from "react-redux";
 import {deleteItem} from "../redux/reducers/basketReducer";
 
 
+
 interface IBasketProps {
     item: IProduct
 }
@@ -22,19 +23,23 @@ const BasketItem: FC<IBasketProps> = ({item}) => {
     }
 
     return (
-        <Grid item sx={{width: "100%"}} >
-            <Paper elevation={3} sx={{display: "flex", width: "100%" , justifyContent:"space-between"}}>
-                <img src={src}  alt="sneaker" className="img__basket"/>
-                <div>
-                    <Typography>{title}</Typography>
-                    <Typography>{subTitle}</Typography>
-                </div>
-                <div>
-                    <Typography>{price} руб.</Typography>
-                    <Button onClick={()=>deleteItemBasket(id)}><DeleteIcon /></Button>
+
+        <Grid item xs={12} sm={6} md={4}>
+            <Paper elevation={3}
+                   sx={{display: "flex", width: "100%", justifyContent: "space-between", alignItems: 'center'}}>
+                <img src={src} alt="sneaker" className="img__basket"/>
+                <div className="wrapper__title-subtitle">
+                    <Typography variant='h5' component='span' sx={{fontSize: "1.3rem"}}>{title}</Typography>
+                    <Typography variant='body1' component='span'>{subTitle}</Typography>
+                    <div className="wrapper__price">
+                        <Typography variant='body1' component='span' sx={{color: "red",fontSize: "20px"}}>{price} руб.</Typography>
+                        <Button onClick={() => deleteItemBasket(id)}><DeleteIcon/></Button>
+                    </div>
                 </div>
             </Paper>
         </Grid>
+
+
     )
 }
 
