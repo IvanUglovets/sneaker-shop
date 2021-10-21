@@ -3,7 +3,7 @@ import {enumBasketItems} from '../../types/enumBasketItems'
 
 interface IActionBasket {
     type: string,
-    payload: any
+    payload?: any
 
 }
 
@@ -24,6 +24,8 @@ export const basketReducer = (state = initialState, action: IActionBasket) => {
             return {...state, basketSneakers: [...state.basketSneakers, action.payload]}
         case enumBasketItems.DELETE_ITEM:
             return {...state, basketSneakers: [...state.basketSneakers.filter((item) => item.id !== action.payload)]}
+        case enumBasketItems.DELETE_ALL:
+            return {...state, basketSneakers: []}
         default: return state
     }
 }
@@ -40,3 +42,8 @@ export const deleteItem = (id: number) :IActionBasket  =>({
     type: enumBasketItems.DELETE_ITEM,
     payload: id
 })
+
+export const deleteAllItems = () :IActionBasket => ({
+    type: enumBasketItems.DELETE_ALL
+})
+

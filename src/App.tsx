@@ -29,7 +29,6 @@ const App: FC = () => {
                         <Switch>
                             <Route path="/" component={Main} exact/>
                             <Route path="/basket" component={Basket} exact/>
-                            <Route component={ErrorPage} exact/>
                         </Switch>
                     </Container>
                 </main>
