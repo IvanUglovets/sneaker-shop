@@ -9,10 +9,11 @@ import {Container} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProducts} from "./redux/actionCreators/fetchProducts";
 import {LoadingButton} from "@mui/lab";
+import {RootState} from "./redux/reducers/rootReducer";
 
 
 const App: FC = () => {
-    const {isLoading} = useSelector((state: any) => state.items)
+    const {isLoading} = useSelector((state: RootState) => state.items)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -29,6 +30,7 @@ const App: FC = () => {
                         <Switch>
                             <Route path="/" component={Main} exact/>
                             <Route path="/basket" component={Basket} exact/>
+                            <Route component={ErrorPage} exact/>
                         </Switch>
                     </Container>
                 </main>

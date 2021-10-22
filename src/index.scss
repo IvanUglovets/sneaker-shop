@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 
-@mixin flexWrapper{
+@mixin flexWrapper {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -38,6 +38,12 @@ body {
   align-items: center;
 }
 
+.wrapper__title-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 //Basket
 .img__basket {
@@ -53,24 +59,25 @@ body {
   margin-top: 1rem;
 
   &-basket {
-    @include flexWrapper
+    @include flexWrapper;
   }
 }
 
-.wrapper__basket-empty{
+.wrapper__basket-empty {
+  margin-top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.wrapper__title-subtitle{
+.wrapper__title-subtitle {
   margin-right: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  .wrapper__price{
+  .wrapper__price {
     width: 100%;
     display: flex;
     justify-content: space-between;
