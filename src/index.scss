@@ -71,6 +71,13 @@ body {
   flex-direction: column;
 }
 
+.wrapper__btn-basket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .wrapper__title-subtitle {
   margin-right: 10px;
   display: flex;

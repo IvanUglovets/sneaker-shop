@@ -28,13 +28,22 @@ const BasketList: FC = () => {
             />
           ))}
       </Grid>
-      <Button
-        variant="contained"
-        sx={{ fontSize: "16px", mt: "1rem" }}
-        onClick={deleteAllSneakers}
-      >
-        Удалить все товары
-      </Button>
+      <div className="wrapper__btn-basket">
+        <Button
+          variant="contained"
+          sx={{ fontSize: "16px", mt: "1rem" }}
+          onClick={deleteAllSneakers}
+        >
+          Удалить все товары
+        </Button>
+        <Button
+          variant="contained"
+          color="warning"
+          sx={{ fontSize: "16px", mt: "1rem" }}
+        >
+          Оформить заказ
+        </Button>
+      </div>
     </div>
   ) : (
     <div className="wrapper__basket-empty">
