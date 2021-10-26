@@ -6,12 +6,24 @@ import { IProduct } from "../types/IProduct";
 import { RootState } from "../redux/reducers/rootReducer";
 import "../index.scss";
 import { deleteAllItems } from "../redux/reducers/basketReducer";
+import BasicModal from "./BasicModal";
 
 const BasketList: FC = () => {
+  const [open, setOpen] = React.useState<boolean>(false);
+
   const dispatch = useDispatch();
+
   const itemsBasket = useSelector(
     (state: RootState) => state.basketItems.basketSneakers
   );
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const deleteAllSneakers = () => {
     dispatch(deleteAllItems());
@@ -40,9 +52,11 @@ const BasketList: FC = () => {
           variant="contained"
           color="warning"
           sx={{ fontSize: "16px", mt: "1rem" }}
+          onClick={handleClickOpen}
         >
           Оформить заказ
         </Button>
+        <BasicModal open={open} handleClose={handleClose} />
       </div>
     </div>
   ) : (
