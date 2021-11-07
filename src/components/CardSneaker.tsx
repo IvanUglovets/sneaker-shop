@@ -10,6 +10,8 @@ import { IProduct } from "../types/IProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket, deleteItem } from "../redux/reducers/basketReducer";
 import { RootState } from "../redux/reducers/rootReducer";
+import {setSneakerItem} from "../redux/reducers/sneakerItemReducer";
+import {useHistory} from "react-router-dom";
 
 interface IPropsCardSneaker {
   sneaker: IProduct;
@@ -20,6 +22,8 @@ const CardSneaker: FC<IPropsCardSneaker> = ({ sneaker }) => {
     (state: RootState) => state.basketItems.basketSneakers
   );
   const dispatch = useDispatch();
+  const history = useHistory()
+
   const { subTitle, src, title, price, id } = sneaker;
 
   const inBasket = itemsBasket.some((item) => item.id === id);
@@ -29,11 +33,19 @@ const CardSneaker: FC<IPropsCardSneaker> = ({ sneaker }) => {
     dispatch(addToBasket(sneaker));
   };
 
+
   const deleteFromBasket = (id: number) => {
     dispatch(deleteItem(id));
   };
+
+  const handleClick = () => {
+    dispatch(setSneakerItem(sneaker))
+    history.push(`/main/${sneaker.id}`)
+
+  }
+
   return (
-    <Grid item>
+    <Grid item onClick={handleClick}>
       <Card sx={{ maxWidth: 345, minHeight: 650 }}>
         <CardMedia component="img" alt="sneaker img" height="450" image={src} />
         <CardContent>

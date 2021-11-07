@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import { TextField, Button } from "@mui/material";
+import {TextField, Button, Alert} from "@mui/material";
 
 interface IPropsForm {
   handleClose: () => void;
@@ -66,9 +66,15 @@ const Form: FC<IPropsForm> = ({ handleClose }) => {
     }
   };
 
+
+  //Handler function for button of submit
+  // const submitOrder = (e: any) => {
+  //
+  // }
+
   return (
     <form action="#">
-      {nameDirty && nameError && <p>{nameError}</p>}
+      {nameDirty && nameError && <Alert severity="error">{nameError}</Alert>}
       <TextField
         name="name"
         id="name"
@@ -79,7 +85,7 @@ const Form: FC<IPropsForm> = ({ handleClose }) => {
         onBlur={(e) => blurHandler(e)}
         sx={{ display: "block", mb: "1rem" }}
       />
-      {lastNameDirty && lastNameError && <p>{lastNameError}</p>}
+      {lastNameDirty && lastNameError && <Alert severity="error">{lastNameError}</Alert>}
       <TextField
         name="lastName"
         id="lastname"
@@ -90,7 +96,7 @@ const Form: FC<IPropsForm> = ({ handleClose }) => {
         onBlur={(e) => blurHandler(e)}
         sx={{ display: "block", mb: "1rem" }}
       />
-      {adressDirty && adressError && <p>{adressError}</p>}
+      {adressDirty && adressError && <Alert severity="error">{adressError}</Alert>}
       <TextField
         name="adress"
         id="adress"

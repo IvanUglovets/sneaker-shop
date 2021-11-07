@@ -3,9 +3,10 @@ import '../index.scss'
 import CardList from "../components/CardList";
 
 
+
 const Main: FC = () => {
     return (
-        <CardList />
+            <CardList/>
     );
 }
 
