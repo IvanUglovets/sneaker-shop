@@ -84,19 +84,39 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+
   .wrapper__price {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .wrapper__amount{
+
+  .wrapper__amount {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
 
-.sneakerPage__wrapper{
-  margin-top: 500px;
+.sneaker-page__wrapper {
+  margin-top: 5rem;
+
+  .sneaker__item-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    .sneaker__item-button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
 }

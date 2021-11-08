@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 import { Button, Grid, Typography } from "@mui/material";
 import BasketItem from "./BasketItem";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import BasicModal from "./BasicModal";
 
 const BasketList: FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);
+
 
   const dispatch = useDispatch();
 

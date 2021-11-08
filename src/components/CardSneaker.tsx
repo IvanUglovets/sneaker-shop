@@ -45,7 +45,7 @@ const CardSneaker: FC<IPropsCardSneaker> = ({ sneaker }) => {
   }
 
   return (
-    <Grid item onClick={handleClick}>
+    <Grid item onClick={handleClick} sx={{cursor: 'pointer'}}>
       <Card sx={{ maxWidth: 345, minHeight: 650 }}>
         <CardMedia component="img" alt="sneaker img" height="450" image={src} />
         <CardContent>

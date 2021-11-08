@@ -1,30 +1,28 @@
 import React, {FC, useState} from "react";
-import {Grid, Paper, TextField, Typography} from "@mui/material";
+import {Grid, Paper, Typography} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {IProduct} from "../types/IProduct";
 import "../index.scss";
 import Button from "@mui/material/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {deleteItem} from "../redux/reducers/basketReducer";
-import {RootState} from "../redux/reducers/rootReducer";
+
 
 
 interface IBasketProps {
-    item: IProduct;
+    item: IProduct
+
 }
 
 const BasketItem: FC<IBasketProps> = ({item}) => {
     const [amount, setAmount] = useState<number>(1)
-    const itemsBasket = useSelector((state: RootState) => state.basketItems.basketSneakers)
     const dispatch = useDispatch();
 
-    console.log(itemsBasket)
     const {title, subTitle, price, src, id} = item;
 
     const deleteItemBasket = (id: number) => {
         dispatch(deleteItem(id));
     };
-
 
     const incrementCountSneaker = () => {
         setAmount(prevState => prevState + 1)
@@ -33,6 +31,7 @@ const BasketItem: FC<IBasketProps> = ({item}) => {
 
     const decrementCountSneaker = () => {
         setAmount(prevState => prevState - 1)
+
     }
 
     return (

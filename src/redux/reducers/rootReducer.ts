@@ -4,6 +4,7 @@ import {basketReducer} from "./basketReducer";
 import {sneakerItemReducer} from "./sneakerItemReducer";
 
 
+
 export const rootReducer = combineReducers({
     items: fetchProductsReducer,
     basketItems: basketReducer,
