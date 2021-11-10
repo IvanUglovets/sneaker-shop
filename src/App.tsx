@@ -10,6 +10,7 @@ import {LoadingButton} from "@mui/lab";
 import {RootState} from "./redux/reducers/rootReducer";
 import SneakerPage from "./pages/SneakerPage";
 import "./index.scss";
+import Footer from "./components/Footer";
 
 
 const App: FC = () => {
@@ -23,17 +24,20 @@ const App: FC = () => {
     return isLoading ? (
         <LoadingButton/>
     ) : (
-        <main>
+        <>
             <Header/>
-            <Container maxWidth="lg">
-                <Switch>
-                    <Route path="/" component={Main} exact/>
-                    <Route path="/basket" component={Basket} exact/>
-                    <Route path="/main/:id" component={SneakerPage} exact/>
-                    <Redirect to="/" exact/>
-                </Switch>
-            </Container>
-        </main>
+            <main style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+                <Container maxWidth="lg" sx={{flex: '1 0 auto'}}>
+                    <Switch>
+                        <Route path="/" component={Main} exact/>
+                        <Route path="/basket" component={Basket} exact/>
+                        <Route path="/main/:id" component={SneakerPage} exact/>
+                        <Redirect to="/" exact/>
+                    </Switch>
+                </Container>
+                <Footer/>
+            </main>
+        </>
     );
 };
 

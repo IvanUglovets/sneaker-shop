@@ -12,7 +12,7 @@ const Basket = () => {
   );
   let totalPrice = totalSum(itemsBasket);
   return (
-    <div style={{ marginTop: "5rem" }}>
+    <div className='wrapper__basket-page'>
       <div className="wrapper__title">
         <Typography
           variant="h1"
