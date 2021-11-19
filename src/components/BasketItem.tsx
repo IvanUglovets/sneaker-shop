@@ -4,8 +4,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import {IProduct} from "../types/IProduct";
 import "../index.scss";
 import Button from "@mui/material/Button";
-import {useDispatch, useSelector} from "react-redux";
-import {deleteItem} from "../redux/reducers/basketReducer";
+import {useDispatch} from "react-redux";
+import {addCount, deleteCount, deleteItem} from "../redux/reducers/basketReducer";
+
 
 
 
@@ -15,24 +16,23 @@ interface IBasketProps {
 }
 
 const BasketItem: FC<IBasketProps> = ({item}) => {
-    const [amount, setAmount] = useState<number>(1)
     const dispatch = useDispatch();
-
-    const {title, subTitle, price, src, id} = item;
+    const {title, subTitle, price, src, id, count} = item
 
     const deleteItemBasket = (id: number) => {
         dispatch(deleteItem(id));
     };
 
     const incrementCountSneaker = () => {
-        setAmount(prevState => prevState + 1)
+        dispatch(addCount(id))
 
     }
 
     const decrementCountSneaker = () => {
-        setAmount(prevState => prevState - 1)
-
+        dispatch(deleteCount(id))
     }
+
+
 
     return (
         <Grid item xs={12} sm={6} md={4}>
@@ -64,7 +64,7 @@ const BasketItem: FC<IBasketProps> = ({item}) => {
                             minHeight: '20px',
                             mr: '5px'
                         }} onClick={incrementCountSneaker}>+</Button>
-                        <Typography variant="body1">{amount}</Typography>
+                        <Typography variant="body1">{count}</Typography>
                         <Button variant="contained" size="small" sx={{
                             borderRadius: "50%",
                             maxWidth: '20px',
@@ -72,7 +72,7 @@ const BasketItem: FC<IBasketProps> = ({item}) => {
                             minWidth: '20px',
                             minHeight: '20px',
                             ml: '5px'
-                        }} disabled={amount <= 1} onClick={decrementCountSneaker}>-</Button>
+                        }} disabled={count <= 1} onClick={decrementCountSneaker}>-</Button>
                     </div>
                     <div className="wrapper__price">
                         <Typography
@@ -80,7 +80,7 @@ const BasketItem: FC<IBasketProps> = ({item}) => {
                             component="span"
                             sx={{color: "red", fontSize: "20px"}}
                         >
-                            {+price * amount} руб.
+                            {+price * count} руб.
                         </Typography>
                         <Button onClick={() => deleteItemBasket(id)}>
                             <DeleteIcon/>

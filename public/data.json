@@ -4,83 +4,95 @@
     "src": "https://images.wbstatic.net/c324x432/new/8420000/8423816-1.jpg",
     "title": "TERREX AX3 BETA MID",
     "subTitle": "adidas",
-    "price": "2530"
+    "price": "2530",
+    "count" : 1
   },
   {
     "id": 2,
     "src": "https://images.wbstatic.net/c324x432/new/8210000/8216373-2.jpg",
     "title": "TERREX EASTRAIL",
     "subTitle": "adidas",
-    "price": "1610"
+    "price": "1610",
+    "count" : 1
   },
   {
     "id": 3,
     "src": "https://images.wbstatic.net/c324x432/new/18090000/18097671-1.jpg",
     "title": "GEL-SONOMA 6 G-TX",
     "subTitle": "asics",
-    "price": "2570"
+    "price": "2570",
+    "count" : 1
   },
   {
     "id": 4,
     "src": "https://images.wbstatic.net/c324x432/new/7220000/7222183-1.jpg",
     "title": "REEBOK ROYAL HYPERI",
     "subTitle": "Reebook",
-    "price": "1150"
+    "price": "1150",
+    "count" : 1
   },
   {
     "id": 5,
     "src": "https://images.wbstatic.net/c324x432/new/18090000/18097670-1.jpg",
     "title": "GEL-SONOMA 6 G-TX",
     "subTitle": "Reebook",
-    "price": "1750"
+    "price": "1750",
+    "count" : 1
   },
   {
     "id": 6,
     "src": "https://images.wbstatic.net/c324x432/new/30300000/30304590-1.jpg",
     "title": "TERREX TRAILMAKER M",
     "subTitle": "adidas",
-    "price": "3000"
+    "price": "3000",
+    "count" : 1
   },
   {
     "id": 7,
     "src": "https://images.wbstatic.net/c324x432/new/30030000/30030467-1.jpg",
     "title": "ROYAL BB4500 CBLACK",
     "subTitle": "Reebook",
-    "price": "1380"
+    "price": "1380",
+    "count" : 1
   },
   {
     "id": 8,
     "src": "https://images.wbstatic.net/c324x432/new/13350000/13359524-1.jpg",
     "title": "TERREX AX3 GTX CBLACK",
     "subTitle": "adidas",
-    "price": "2530"
+    "price": "2530",
+    "count" : 1
   },
   {
     "id": 9,
     "src": "https://images.wbstatic.net/c324x432/new/7220000/7222189-1.jpg",
     "title": "ROYAL BB4500 CBLACK",
     "subTitle": "Reebook",
-    "price": "1920"
+    "price": "1920",
+    "count" : 1
   },
   {
     "id": 10,
     "src": "https://images.wbstatic.net/c324x432/new/34890000/34894849-1.jpg",
     "title": "GEL-SANGAKU 2",
     "subTitle": "asics",
-    "price": "1220"
+    "price": "1220",
+    "count" : 1
   },
   {
     "id": 11,
     "src": "https://images.wbstatic.net/c324x432/new/34990000/34997702-1.jpg",
     "title": "GEL-SONOMA 6 G-TX",
     "subTitle": "asics",
-    "price": "2570"
+    "price": "2570",
+    "count" : 1
   },
   {
     "id": 12,
     "src": "https://images.wbstatic.net/c324x432/new/7220000/7222183-1.jpg",
     "title": "TERREX AX4 GTX CBLACK",
     "subTitle": "adidas",
-    "price": "2300"
+    "price": "2300",
+    "count" : 1
   }
 ]

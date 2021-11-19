@@ -26,6 +26,20 @@ export const basketReducer = (state = initialState, action: IActionBasket) => {
             return {...state, basketSneakers: [...state.basketSneakers.filter((item) => item.id !== action.payload)]}
         case enumBasketItems.DELETE_ALL:
             return {...state, basketSneakers: []}
+        case enumBasketItems.ADD_COUNT:
+            return {
+                ...state,
+                basketSneakers: [...state.basketSneakers.map(item => {
+                   return item.id === action.payload ? {...item, count: item.count+1} : item
+                })]
+            }
+        case  enumBasketItems.DELETE_COUNT:
+            return {
+                ...state,
+                basketSneakers: [...state.basketSneakers.map(item => {
+                    return item.id === action.payload ? {...item, count: item.count-1} : item
+                })]
+            }
         default: return state
     }
 }
@@ -45,5 +59,15 @@ export const deleteItem = (id: number) :IActionBasket  =>({
 
 export const deleteAllItems = () :IActionBasket => ({
     type: enumBasketItems.DELETE_ALL
+})
+
+export const addCount = (id: number) : IActionBasket => ({
+    type: enumBasketItems.ADD_COUNT,
+    payload: id
+})
+
+export const deleteCount = (id: number) : IActionBasket => ({
+    type:enumBasketItems.DELETE_COUNT,
+    payload: id
 })
 

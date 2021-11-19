@@ -8,22 +8,22 @@ interface IPropsForm {
 const Form: FC<IPropsForm> = ({ handleClose }) => {
   const [name, setName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
-  const [adress, setAdress] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
   const [nameDirty, setNameDirty] = useState<boolean>(false);
   const [lastNameDirty, setLastNameDirty] = useState<boolean>(false);
-  const [adressDirty, setAdressDirty] = useState<boolean>(false);
+  const [addressDirty, setAddressDirty] = useState<boolean>(false);
   const [nameError, setNameError] = useState<string>("");
   const [lastNameError, setLastNameError] = useState<string>("");
-  const [adressError, setAdressError] = useState<string>("");
+  const [addressError, setAddressError] = useState<string>("");
   const [formValid, setFormValid] = useState<boolean>(false);
 
   useEffect(() => {
-    if (nameError || adressError || lastNameError) {
+    if (nameError || addressError || lastNameError) {
       setFormValid(false);
     } else {
       setFormValid(true);
     }
-  }, [nameError, adressError, lastNameError]);
+  }, [nameError, addressError, lastNameError]);
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -43,12 +43,12 @@ const Form: FC<IPropsForm> = ({ handleClose }) => {
     }
   };
 
-  const handleAdress = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAdress(e.target.value);
+  const handleAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.target.value);
     if (!e.target.value) {
-      setAdressError('Поле "Адресс" должно быть обязательно заполнено');
+      setAddressError('Поле "Адресс" должно быть обязательно заполнено');
     } else {
-      setAdressError("");
+      setAddressError("");
     }
   };
 
@@ -61,7 +61,7 @@ const Form: FC<IPropsForm> = ({ handleClose }) => {
         setLastNameDirty(true);
         break;
       case "adress":
-        setAdressDirty(true);
+        setAddressDirty(true);
         break;
     }
   };
@@ -96,14 +96,14 @@ const Form: FC<IPropsForm> = ({ handleClose }) => {
         onBlur={(e) => blurHandler(e)}
         sx={{ display: "block", mb: "1rem" }}
       />
-      {adressDirty && adressError && <Alert severity="error">{adressError}</Alert>}
+      {addressDirty && addressError && <Alert severity="error">{addressError}</Alert>}
       <TextField
-        name="adress"
-        id="adress"
+        name="address"
+        id="address"
         label="Адрес:"
         variant="standard"
-        value={adress}
-        onChange={handleAdress}
+        value={address}
+        onChange={handleAddress}
         onBlur={(e) => blurHandler(e)}
         sx={{ display: "block", mb: "1rem" }}
       />
