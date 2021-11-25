@@ -11,6 +11,8 @@ interface IPropsForm {
     handleClose: () => void;
 }
 
+
+
 const Form: FC<IPropsForm> = ({handleClose}) => {
     const itemsBasket = useSelector((state: RootState) => state.basketItems.basketSneakers)
     const [name, setName] = useState<string>("");
@@ -25,8 +27,8 @@ const Form: FC<IPropsForm> = ({handleClose}) => {
     const [formValid, setFormValid] = useState<boolean>(false);
 
 
-
     const price = useMemo(() => totalSum(itemsBasket),[itemsBasket])
+
 
     useEffect(() => {
         if (nameError || addressError || lastNameError) {
@@ -76,7 +78,6 @@ const Form: FC<IPropsForm> = ({handleClose}) => {
                 break;
         }
     };
-
 
     return (
         <form action="#">

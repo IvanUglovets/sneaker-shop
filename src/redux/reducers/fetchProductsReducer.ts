@@ -57,6 +57,15 @@ export const fetchProductsReducer = (
         ...state,
         products: JSON.parse(localStorage.getItem("sneakers")!),
       };
+    case FetchProducts.FILTER_CHECK:
+      const filterlist: IProduct[] = JSON.parse(localStorage.getItem("sneakers")!)
+      return {
+        ...state,
+        products: [
+            ...filterlist.filter(item => item.subTitle === action.payload)
+        ]
+      }
+
     default:
       return state;
   }
@@ -91,3 +100,8 @@ export const sortByAlpha = () => ({
 export const sortByDefault = () => ({
   type: FetchProducts.SORT_BY_DEFAULT,
 });
+
+export const checkFilter = (payload: string) => ({
+  type: FetchProducts.FILTER_CHECK,
+  payload
+})
